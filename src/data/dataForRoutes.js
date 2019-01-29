@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
+import Main from '../components/pages/Main';
 import CompanyInfo from '../components/pages/CompanyInfo';
 import BusinessOwnerInfo from '../components/pages/BusinessOwnerInfo';
 import LoginInfo from '../components/pages/LoginInfo';
@@ -8,6 +9,7 @@ import TwoFactorAuth from '../components/pages/TwoFactorAuth';
 import VerifyIdentity from '../components/pages/VerifyIdentity';
 
 export const objKeys = {
+  MAIN: 'MAIN',
   COMPANY_INFO: 'COMPANY_INFO',
   BUSINESS_OWNER_INFO: 'BUSINESS_OWNER_INFO',
   LOGIN_INFO: 'LOGIN_INFO',
@@ -16,6 +18,7 @@ export const objKeys = {
 };
 
 export const links = {
+  [objKeys.MAIN]: '/',
   [objKeys.COMPANY_INFO]: '/company-info',
   [objKeys.BUSINESS_OWNER_INFO]: '/business-owner-info',
   [objKeys.LOGIN_INFO]: '/login-info',
@@ -24,20 +27,26 @@ export const links = {
 };
 
 export const texts = {
-  [objKeys.COMPANY_INFO]: 'COMPANY_INFO',
-  [objKeys.BUSINESS_OWNER_INFO]: 'BUSINESS_OWNER_INFO',
-  [objKeys.LOGIN_INFO]: 'LOGIN_INFO',
-  [objKeys.TWO_FACTOR_AUTH]: 'TWO_FACTOR_AUTH',
-  [objKeys.VERIFY_IDENTITY]: 'VERIFY_IDENTITY',
+  [objKeys.MAIN]: 'Main',
+  [objKeys.COMPANY_INFO]: 'Company Info',
+  [objKeys.BUSINESS_OWNER_INFO]: 'Business Owner Info',
+  [objKeys.LOGIN_INFO]: 'Login Info',
+  [objKeys.TWO_FACTOR_AUTH]: 'Two Factor Auth',
+  [objKeys.VERIFY_IDENTITY]: 'Verify Identity',
 };
 
 export const components = {
+  [objKeys.MAIN]: Main,
   [objKeys.COMPANY_INFO]: CompanyInfo,
   [objKeys.BUSINESS_OWNER_INFO]: BusinessOwnerInfo,
   [objKeys.LOGIN_INFO]: LoginInfo,
   [objKeys.TWO_FACTOR_AUTH]: TwoFactorAuth,
   [objKeys.VERIFY_IDENTITY]: VerifyIdentity,
 };
+
+// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
 
 export default Object.keys(objKeys).map((objKey, idx) => {
   return {
