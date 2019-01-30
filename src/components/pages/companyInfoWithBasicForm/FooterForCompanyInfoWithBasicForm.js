@@ -24,7 +24,7 @@ const FlexWrapper = styled.span`
   margin-bottom: 8px;
 `;
 
-const FooterForCompanyInfo = () => {
+const FooterForCompanyInfoWithBasicForm = props => {
   return (
     <RenderPropsForIsSelected>
       {({ isSelected, toggleIsSelected }) => {
@@ -44,7 +44,7 @@ const FooterForCompanyInfo = () => {
             </FlexWrapper>
 
             <FlexWrapper>
-              <div> Already hav an account ? </div>
+              <div> Already have an account ? </div>
               <AnchorButton style={{ lineHeight: 1 }} text="Sign in" color="var(--color-neptune)" />
             </FlexWrapper>
           </div>
@@ -54,4 +54,4 @@ const FooterForCompanyInfo = () => {
   );
 };
 
-export default FooterForCompanyInfo;
+export default FooterForCompanyInfoWithBasicForm;

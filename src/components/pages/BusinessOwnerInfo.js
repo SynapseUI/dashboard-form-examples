@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'synapsefi-dev-ui';
+import { BasicForm } from 'synapsefi-dev-ui';
 import _ from 'lodash';
 
 // -----------------------------------------------------------------------------------------
@@ -16,15 +16,6 @@ import dataForBusinessOwnerInfo, {
 } from './businessOwnerInfo/dataForBusinessOwnerInfo';
 
 class BusinessOwnerInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialFormValues;
-  }
-
-  updateField = (e, value, field) => {
-    this.setState({ [field]: value });
-  };
-
   handleErrorCheck = () => {
     let errors = {};
 
@@ -43,12 +34,11 @@ class BusinessOwnerInfo extends Component {
     return errors;
   };
 
-  handleSubmit = e => {
-    if (e) e.preventDefault();
+  handleSubmit = values => {
+    console.log('values: ', values);
 
     setTimeout(() => {
-      console.log('Submiting this.state in FormApp', this.state);
-      this.setState({ isLoading: false });
+      console.log('Submiting this.state in FormApp', values);
     }, 500);
   };
 
@@ -57,13 +47,11 @@ class BusinessOwnerInfo extends Component {
 
     return (
       <div>
-        <Form
-          data={formData}
-          formValues={this.state}
+        <BasicForm
+          initialState={initialFormValues}
+          formData={formData}
           handleSubmit={this.handleSubmit}
-          validation={this.handleErrorCheck}
           customFooter={<BtnForBusinessOwner />}
-          onChange={this.updateField}
         />
       </div>
     );

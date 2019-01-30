@@ -18,16 +18,30 @@ export const keys = {
   COUNTRY: 'COUNTRY',
 };
 
-export const initialFormValues = {
-  [keys.FULL_NAME]: '',
-  [keys.DATE_OF_BIRTH]: '',
-  [keys.EMAIL]: '',
-  [keys.PHONE_NUMBER]: '',
-  [keys.STREET]: '',
-  [keys.CITY]: '',
-  [keys.STATE]: '',
-  [keys.ZIP_CODE]: '',
-  [keys.COUNTRY]: 'US',
+// export const initialFormValues = {
+//   [keys.FULL_NAME]: '',
+//   [keys.DATE_OF_BIRTH]: '',
+//   [keys.EMAIL]: '',
+//   [keys.PHONE_NUMBER]: '',
+//   [keys.STREET]: '',
+//   [keys.CITY]: '',
+//   [keys.STATE]: '',
+//   [keys.ZIP_CODE]: '',
+//   [keys.COUNTRY]: 'US',
+// };
+
+export const initialFormValues = () => {
+  return {
+    [keys.FULL_NAME]: '',
+    [keys.DATE_OF_BIRTH]: '',
+    [keys.EMAIL]: '',
+    [keys.PHONE_NUMBER]: '',
+    [keys.STREET]: '',
+    [keys.CITY]: '',
+    [keys.STATE]: '',
+    [keys.ZIP_CODE]: '',
+    [keys.COUNTRY]: 'US',
+  };
 };
 
 export const labels = {

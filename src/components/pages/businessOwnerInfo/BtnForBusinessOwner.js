@@ -16,8 +16,10 @@ const Wrapper = styled.div`
 const BtnForBusinessOwner = () => {
   return (
     <Wrapper style={{ gridColumnStart: 1 }}>
-      <Button secondary> Back </Button>
-      <Button> Continue </Button>
+      <Button secondary type="button">
+        Back
+      </Button>
+      <Button type="submit"> Continue </Button>
     </Wrapper>
   );
 };

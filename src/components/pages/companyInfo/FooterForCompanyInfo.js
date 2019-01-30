@@ -24,7 +24,7 @@ const FlexWrapper = styled.span`
   margin-bottom: 8px;
 `;
 
-const FooterForCompanyInfo = () => {
+const FooterForCompanyInfo = props => {
   return (
     <RenderPropsForIsSelected>
       {({ isSelected, toggleIsSelected }) => {

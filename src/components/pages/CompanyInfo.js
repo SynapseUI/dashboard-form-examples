@@ -58,7 +58,7 @@ class CompanyInfo extends Component {
           data={formData}
           formValues={this.state}
           handleSubmit={this.handleSubmit}
-          validation={this.handleErrorCheck}
+          // validation={this.handleErrorCheck}
           customFooter={<BtnForCompanyInfo />}
           onChange={this.updateField}
         />

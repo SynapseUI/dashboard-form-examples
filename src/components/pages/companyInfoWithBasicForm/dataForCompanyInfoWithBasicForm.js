@@ -14,7 +14,7 @@ export const keys = {
   COUNTRY: 'COUNTRY',
 };
 
-export const initialFormValues = () => {
+export const getInitialFormValues = () => {
   return {
     [keys.COMPANY_NAME]: '',
     [keys.BUSINESS_TYPE]: '',
@@ -68,15 +68,6 @@ const allOptions = {
   [keys.COMPANY_INDUSTRY]: 'customOptions',
   [keys.STATE]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
   [keys.COUNTRY]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
-};
-
-export const handleSubmit = (values, props) => {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      console.log('Submitting', values);
-      resolve('foo');
-    }, 1000);
-  });
 };
 
 export default ({ entityTypeOptions, entityScopeOptions }) => {

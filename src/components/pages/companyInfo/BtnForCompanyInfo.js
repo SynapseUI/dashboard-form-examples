@@ -11,10 +11,11 @@ const Wrapper = styled.div`
   padding-top: 16px;
 `;
 
-const BtnForCompanyInfo = () => {
+const BtnForCompanyInfo = props => {
   return (
     <Wrapper style={{ gridColumnStart: 1 }}>
-      <Button>Continue </Button>
+      {/* <Button onClick={() => props.handleSubmit()}> Continue </Button> */}
+      <Button> Continue </Button>
     </Wrapper>
   );
 };

@@ -8,6 +8,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   grid-column-start: 1;
   display: grid;
+  padding-top: 16px;
 `;
 
 const BtnForCompanyInfo = () => {

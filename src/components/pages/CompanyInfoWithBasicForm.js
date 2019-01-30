@@ -19,10 +19,12 @@ import FooterForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/Footer
 // ----------------------------------------- Data ------------------------------------------
 // -----------------------------------------------------------------------------------------
 import dataForCompanyInfoWithBasicForm, {
-  initialFormValues,
-  handleSubmit,
+  getInitialFormValues,
 } from './companyInfoWithBasicForm/dataForCompanyInfoWithBasicForm';
 
+// -----------------------------------------------------------------------------------------
+// ---------------------------------- Styled Components ------------------------------------
+// -----------------------------------------------------------------------------------------
 class CompanyInfoWithBasicForm extends Component {
   handleErrorCheck = values => {
     let errors = {};
@@ -37,12 +39,7 @@ class CompanyInfoWithBasicForm extends Component {
   };
 
   handleSubmit = values => {
-    // if (e) e.preventDefault();
-    console.log('aa');
-    setTimeout(() => {
-      console.log('Submiting this.state in FormApp', values);
-      this.setState({ isLoading: false });
-    }, 500);
+    console.log('values: ', values);
   };
 
   render() {
@@ -55,11 +52,9 @@ class CompanyInfoWithBasicForm extends Component {
     return (
       <div>
         <BasicForm
-          initialState={initialFormValues}
+          initialState={getInitialFormValues}
           formData={formData}
-          // handleSubmit={this.handleSubmit}
-          handleSubmit={handleSubmit}
-          handleValidation={this.handleErrorCheck}
+          handleSubmit={this.handleSubmit}
           customFooter={<BtnForCompanyInfoWithBasicForm />}
         />
         <FooterForCompanyInfoWithBasicForm />
