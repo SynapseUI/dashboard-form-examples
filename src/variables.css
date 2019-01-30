@@ -1,0 +1,58 @@
+:root {
+  --color-arsenic: #364149;
+  /* Primary */
+  --color-teal: #049cb0;
+  --color-dark-teal: #1c8290;
+  --color-deep-teal: #166a75;
+  --color-dark: #262626;
+  --color-dark-night: #333333;
+  --color-night: #494949;
+  --color-evening: #666666;
+  --color-medium-gray: #8c8c8c;
+  --color-warm-light: #cccccc;
+  --color-cool-light: #e4e4e4;
+  --color-silk-white: #f9f9f9;
+  --color-white: #ffffff;
+  --color-dark-base: #364149;
+
+  /* Secondary */
+  --color-creative: #fdbd39;
+  --color-authentic: #8cc478;
+  --color-energy: #cf5938;
+  --color-dark-energy: #ae361f;
+  --color-deep-energy: #912f1c;
+  --color-dark-teal: #1c8290;
+  --color-ocean: #166a75;
+  --color-orange: #eb8a3b;
+  --color-orchid: #a35e80;
+
+  /* Light */
+  --color-baby-teal: #dae9eb;
+  --color-baby-peach: #f3e4de;
+  --color-lilac: #eee3f0;
+  --color-light-ivory: #fffcf0;
+  --color-apricot: #ffdbd1;
+  --color-spring: #ebf6d9;
+  --color-ginger: #fff4cc;
+
+  --color-primary: var(--color-teal);
+  --color-primary-dark: var(--color-dark-teal);
+  --color-default-font: var(--color-dark-night);
+
+  --color-boa-main-color: #ef2a24;
+  --color-wells-fargo-main-color: #eab206;
+  --color-evolve-main-color: #016bf7;
+
+  --color-boa-font-color: #0066b2;
+  --color-wells-fargo-font-color: #eab206;
+  --color-evolve-font-color: #8eca19;
+
+  /* new colors */
+  --color-success-green: #A5BD83;
+  --color-error-red: #db6a4b;
+  --color-mustard: #E9C884;
+  --color-neptune: #79a9af;
+  --color-hoki: #608085;
+  --color-azure: #f2f7f7;
+  --color-pending-yellow: #CAA861;
+}

@@ -6,6 +6,7 @@ import _ from 'lodash';
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
 import BtnForCompanyInfo from './companyInfo/BtnForCompanyInfo';
+import FooterForCompanyInfo from './companyInfo/FooterForCompanyInfo';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------------- Data ------------------------------------------
@@ -24,10 +25,6 @@ class CompanyInfo extends Component {
 
   handleErrorCheck = () => {
     let errors = {};
-
-    if (this.state.email === 'test@email.com') {
-      errors['email'] = 'Input a real email address -_-';
-    }
 
     Object.keys(this.state).forEach(field => {
       if (_.isEmpty(this.state[field])) {
@@ -53,32 +50,19 @@ class CompanyInfo extends Component {
       entityTypeOptions: options,
       entityScopeOptions: options,
     });
-    console.log('formData: ', formData);
 
     return (
-      <Form
-        data={formData}
-        formValues={this.state}
-        handleSubmit={this.handleSubmit}
-        validation={this.handleErrorCheck}
-        // btnObjs={[
-        //   {
-        //     type: 'button', // MUST HAVE TYPE
-        //     style: 'tertiary',
-        //     text: 'Back',
-        //     onClick: () => console.log('cancel'),
-        //   },
-        //   {
-        //     type: 'submit',
-        //     style: 'primary',
-        //     text: 'Submit',
-        //   },
-        // ]}
-        customFooter={<BtnForCompanyInfo />}
-        onChange={this.updateField}
-      >
-        {/* <div /> */}
-      </Form>
+      <div>
+        <Form
+          data={formData}
+          formValues={this.state}
+          handleSubmit={this.handleSubmit}
+          validation={this.handleErrorCheck}
+          customFooter={<BtnForCompanyInfo />}
+          onChange={this.updateField}
+        />
+        <FooterForCompanyInfo />
+      </div>
     );
   }
 }
