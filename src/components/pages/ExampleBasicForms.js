@@ -6,6 +6,13 @@ import { BasicForm, Button, BasicFormModal } from 'synapsefi-dev-ui';
 // -----------------------------------------------------------------------------------------
 import * as dataForBasicForm from './basicForm/dataForBasicForm';
 
+// initialState
+// formData
+// handleSubmit
+// handleValidation
+// handleHidden
+// handleCancel
+
 class ExampleBasicForms extends React.Component {
   constructor(props) {
     super(props);

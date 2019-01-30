@@ -28,7 +28,6 @@ const FooterForCompanyInfo = () => {
   return (
     <RenderPropsForIsSelected>
       {({ isSelected, toggleIsSelected }) => {
-        console.log('isSelected: ', isSelected);
         return (
           <div style={{ marginTop: '32px' }}>
             <FlexWrapper>

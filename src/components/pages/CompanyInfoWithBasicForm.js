@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { BasicForm } from 'synapsefi-dev-ui';
 import _ from 'lodash';
 
+// initialState
+// formData
+// handleSubmit
+// handleValidation
+// handleHidden
+// handleCancel
+
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
@@ -13,23 +20,15 @@ import FooterForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/Footer
 // -----------------------------------------------------------------------------------------
 import dataForCompanyInfoWithBasicForm, {
   initialFormValues,
+  handleSubmit,
 } from './companyInfoWithBasicForm/dataForCompanyInfoWithBasicForm';
 
 class CompanyInfoWithBasicForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialFormValues;
-  }
-
-  updateField = (e, value, field) => {
-    this.setState({ [field]: value });
-  };
-
-  handleErrorCheck = () => {
+  handleErrorCheck = values => {
     let errors = {};
 
-    Object.keys(this.state).forEach(field => {
-      if (_.isEmpty(this.state[field])) {
+    Object.keys(values).forEach(field => {
+      if (_.isEmpty(values[field])) {
         errors[field] = 'Field is required';
       }
     });
@@ -37,11 +36,11 @@ class CompanyInfoWithBasicForm extends Component {
     return errors;
   };
 
-  handleSubmit = e => {
-    if (e) e.preventDefault();
-
+  handleSubmit = values => {
+    // if (e) e.preventDefault();
+    console.log('aa');
     setTimeout(() => {
-      console.log('Submiting this.state in FormApp', this.state);
+      console.log('Submiting this.state in FormApp', values);
       this.setState({ isLoading: false });
     }, 500);
   };
@@ -56,12 +55,12 @@ class CompanyInfoWithBasicForm extends Component {
     return (
       <div>
         <BasicForm
-          data={formData}
-          formValues={this.state}
-          handleSubmit={this.handleSubmit}
-          validation={this.handleErrorCheck}
+          initialState={initialFormValues}
+          formData={formData}
+          // handleSubmit={this.handleSubmit}
+          handleSubmit={handleSubmit}
+          handleValidation={this.handleErrorCheck}
           customFooter={<BtnForCompanyInfoWithBasicForm />}
-          onChange={this.updateField}
         />
         <FooterForCompanyInfoWithBasicForm />
       </div>

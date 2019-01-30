@@ -12,6 +12,8 @@ import FooterForCompanyInfo from './companyInfo/FooterForCompanyInfo';
 // ----------------------------------------- Data ------------------------------------------
 // -----------------------------------------------------------------------------------------
 import dataForCompanyInfo, { initialFormValues } from './companyInfo/dataForCompanyInfo';
+import businessEntityTypeOptions from '../../fetchedData/businessEntityTypeOptions';
+import entityScopeOptions from '../../fetchedData/entityScopeOptions';
 
 class CompanyInfo extends Component {
   constructor(props) {
@@ -45,10 +47,9 @@ class CompanyInfo extends Component {
   };
 
   render() {
-    const options = [{ key: 'aaa', text: 'aaaa' }, { key: 'b', text: 'bee' }];
     const formData = dataForCompanyInfo({
-      entityTypeOptions: options,
-      entityScopeOptions: options,
+      entityTypeOptions: businessEntityTypeOptions,
+      entityScopeOptions: entityScopeOptions,
     });
 
     return (

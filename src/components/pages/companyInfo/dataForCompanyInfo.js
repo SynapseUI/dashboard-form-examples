@@ -1,5 +1,11 @@
 import { FormTypeConstants } from 'synapsefi-dev-ui';
 
+// -----------------------------------------------------------------------------------------
+// ----------------------------------------- Data ------------------------------------------
+// -----------------------------------------------------------------------------------------
+import stateOptions from '../../../staticData/stateOptions';
+import countryOptions from '../../../staticData/countryOptions';
+
 export const keys = {
   COMPANY_NAME: 'COMPANY_NAME',
   BUSINESS_TYPE: 'BUSINESS_TYPE',
@@ -64,8 +70,15 @@ export const types = {
 const allOptions = {
   [keys.BUSINESS_TYPE]: 'customOptions',
   [keys.COMPANY_INDUSTRY]: 'customOptions',
-  [keys.STATE]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
-  [keys.COUNTRY]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
+  [keys.STATE]: stateOptions,
+  [keys.COUNTRY]: countryOptions,
+};
+
+const searchables = {
+  [keys.BUSINESS_TYPE]: true,
+  [keys.COMPANY_INDUSTRY]: true,
+  [keys.STATE]: true,
+  [keys.COUNTRY]: true,
 };
 
 export default ({ entityTypeOptions, entityScopeOptions }) => {
@@ -89,6 +102,10 @@ export default ({ entityTypeOptions, entityScopeOptions }) => {
 
     if (types[key]) {
       obj.type = types[key];
+    }
+
+    if (searchables[key]) {
+      obj.searchable = true;
     }
 
     return obj;

@@ -24,7 +24,7 @@ const FlexWrapper = styled.span`
   margin-bottom: 8px;
 `;
 
-const FooterForCompanyInfo = () => {
+const FooterForBusinessOwnerInfo = () => {
   return (
     <RenderPropsForIsSelected>
       {({ isSelected, toggleIsSelected }) => {
@@ -54,4 +54,4 @@ const FooterForCompanyInfo = () => {
   );
 };
 
-export default FooterForCompanyInfo;
+export default FooterForBusinessOwnerInfo;

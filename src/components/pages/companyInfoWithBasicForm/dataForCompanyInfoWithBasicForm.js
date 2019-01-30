@@ -14,18 +14,20 @@ export const keys = {
   COUNTRY: 'COUNTRY',
 };
 
-export const initialFormValues = {
-  [keys.COMPANY_NAME]: '',
-  [keys.BUSINESS_TYPE]: '',
-  [keys.COMPANY_INDUSTRY]: '',
-  [keys.DATE_OF_ORGANIZATION]: '',
-  [keys.COMPANY_EMAIL]: '',
-  [keys.COMPANY_PHONE_NUMBER]: '',
-  [keys.STREET]: '',
-  [keys.CITY]: '',
-  [keys.STATE]: '',
-  [keys.ZIP_CODE]: '',
-  [keys.COUNTRY]: '',
+export const initialFormValues = () => {
+  return {
+    [keys.COMPANY_NAME]: '',
+    [keys.BUSINESS_TYPE]: '',
+    [keys.COMPANY_INDUSTRY]: '',
+    [keys.DATE_OF_ORGANIZATION]: '',
+    [keys.COMPANY_EMAIL]: '',
+    [keys.COMPANY_PHONE_NUMBER]: '',
+    [keys.STREET]: '',
+    [keys.CITY]: '',
+    [keys.STATE]: '',
+    [keys.ZIP_CODE]: '',
+    [keys.COUNTRY]: '',
+  };
 };
 
 export const labels = {
@@ -66,6 +68,15 @@ const allOptions = {
   [keys.COMPANY_INDUSTRY]: 'customOptions',
   [keys.STATE]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
   [keys.COUNTRY]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
+};
+
+export const handleSubmit = (values, props) => {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log('Submitting', values);
+      resolve('foo');
+    }, 1000);
+  });
 };
 
 export default ({ entityTypeOptions, entityScopeOptions }) => {
