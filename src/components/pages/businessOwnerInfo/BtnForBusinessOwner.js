@@ -1,26 +1,25 @@
 import React from 'react';
+import { Button } from 'synapsefi-dev-ui';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 
 // -----------------------------------------------------------------------------------------
 // ---------------------------------- Styled Components ------------------------------------
 // -----------------------------------------------------------------------------------------
-const Wrapper = styled.button`
-  cursor: pointer;
-  padding: 8px 20px;
-  margin: 8px 16px 8px 0;
+const Wrapper = styled.div`
+  grid-column-start: 1;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 32px;
+  padding-top: 16px;
 `;
 
-const NavItem = ({ link, text, history }) => {
+const BtnForBusinessOwner = () => {
   return (
-    <Wrapper
-      onClick={() => {
-        history.push(link);
-      }}
-    >
-      {text}
+    <Wrapper style={{ gridColumnStart: 1 }}>
+      <Button secondary> Back </Button>
+      <Button> Continue </Button>
     </Wrapper>
   );
 };
 
-export default withRouter(NavItem);
+export default BtnForBusinessOwner;

@@ -5,17 +5,15 @@ import _ from 'lodash';
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
-import BtnForCompanyInfo from './companyInfo/BtnForCompanyInfo';
-import FooterForCompanyInfo from './companyInfo/FooterForCompanyInfo';
+import BtnForBusinessOwner from './businessOwnerInfo/BtnForBusinessOwner';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------------- Data ------------------------------------------
 // -----------------------------------------------------------------------------------------
 import dataForBusinessOwnerInfo, {
+  keys,
   initialFormValues,
 } from './businessOwnerInfo/dataForBusinessOwnerInfo';
-import businessEntityTypeOptions from '../../fetchedData/businessEntityTypeOptions';
-import entityScopeOptions from '../../fetchedData/entityScopeOptions';
 
 class BusinessOwnerInfo extends Component {
   constructor(props) {
@@ -34,6 +32,12 @@ class BusinessOwnerInfo extends Component {
       if (_.isEmpty(this.state[field])) {
         errors[field] = 'Field is required';
       }
+
+      if (field === keys.FULL_NAME) {
+        if (this.state[field].split(' ').length < 2) {
+          errors[keys.FULL_NAME] = 'Space between first and last name is required';
+        }
+      }
     });
 
     return errors;
@@ -49,10 +53,7 @@ class BusinessOwnerInfo extends Component {
   };
 
   render() {
-    const formData = dataForBusinessOwnerInfo({
-      entityTypeOptions: businessEntityTypeOptions,
-      entityScopeOptions: entityScopeOptions,
-    });
+    const formData = dataForBusinessOwnerInfo();
 
     return (
       <div>
@@ -61,10 +62,9 @@ class BusinessOwnerInfo extends Component {
           formValues={this.state}
           handleSubmit={this.handleSubmit}
           validation={this.handleErrorCheck}
-          customFooter={<BtnForCompanyInfo />}
+          customFooter={<BtnForBusinessOwner />}
           onChange={this.updateField}
         />
-        <FooterForCompanyInfo />
       </div>
     );
   }

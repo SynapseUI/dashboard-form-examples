@@ -31,7 +31,7 @@ export const initialFormValues = {
   [keys.CITY]: '',
   [keys.STATE]: '',
   [keys.ZIP_CODE]: '',
-  [keys.COUNTRY]: '',
+  [keys.COUNTRY]: 'US',
 };
 
 export const labels = {

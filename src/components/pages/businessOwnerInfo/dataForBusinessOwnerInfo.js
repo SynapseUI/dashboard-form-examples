@@ -8,7 +8,7 @@ import countryOptions from '../../../staticData/countryOptions';
 
 export const keys = {
   FULL_NAME: 'FULL_NAME',
-  DATE_OF_ORGANIZATION: 'DATE_OF_ORGANIZATION',
+  DATE_OF_BIRTH: 'DATE_OF_BIRTH',
   EMAIL: 'EMAIL',
   PHONE_NUMBER: 'PHONE_NUMBER',
   STREET: 'STREET',
@@ -20,21 +20,21 @@ export const keys = {
 
 export const initialFormValues = {
   [keys.FULL_NAME]: '',
-  [keys.DATE_OF_ORGANIZATION]: '',
+  [keys.DATE_OF_BIRTH]: '',
   [keys.EMAIL]: '',
   [keys.PHONE_NUMBER]: '',
   [keys.STREET]: '',
   [keys.CITY]: '',
   [keys.STATE]: '',
   [keys.ZIP_CODE]: '',
-  [keys.COUNTRY]: '',
+  [keys.COUNTRY]: 'US',
 };
 
 export const labels = {
-  [keys.FULL_NAME]: 'Company Name',
-  [keys.DATE_OF_ORGANIZATION]: 'Date of Organization',
-  [keys.EMAIL]: 'Company Email',
-  [keys.PHONE_NUMBER]: 'Company Phone Number',
+  [keys.FULL_NAME]: 'Full Name',
+  [keys.DATE_OF_BIRTH]: 'Date of Birth',
+  [keys.EMAIL]: 'Email',
+  [keys.PHONE_NUMBER]: 'Phone Number',
   [keys.STREET]: 'Street',
   [keys.CITY]: 'City',
   [keys.STATE]: 'State',
@@ -44,7 +44,7 @@ export const labels = {
 
 export const formTypes = {
   [keys.FULL_NAME]: FormTypeConstants.TYPE_INPUT,
-  [keys.DATE_OF_ORGANIZATION]: FormTypeConstants.TYPE_NUMBERINPUT,
+  [keys.DATE_OF_BIRTH]: FormTypeConstants.TYPE_NUMBERINPUT,
   [keys.EMAIL]: FormTypeConstants.TYPE_INPUT,
   [keys.PHONE_NUMBER]: FormTypeConstants.TYPE_NUMBERINPUT,
   [keys.STREET]: FormTypeConstants.TYPE_INPUT,
@@ -55,7 +55,7 @@ export const formTypes = {
 };
 
 export const types = {
-  [keys.DATE_OF_ORGANIZATION]: 'date',
+  [keys.DATE_OF_BIRTH]: 'date',
   [keys.PHONE_NUMBER]: 'phone',
 };
 
@@ -83,7 +83,7 @@ export default () => {
     }
 
     if (allOptions[key]) {
-      obj.option = allOptions[key];
+      obj.options = allOptions[key];
     }
 
     if (searchables[key]) {
