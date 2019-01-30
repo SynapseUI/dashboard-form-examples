@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { Form } from 'synapsefi-dev-ui';
+import { BasicForm } from 'synapsefi-dev-ui';
 import _ from 'lodash';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
-import BtnForCompanyInfo from './companyInfo/BtnForCompanyInfo';
-import FooterForCompanyInfo from './companyInfo/FooterForCompanyInfo';
+import BtnForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/BtnForCompanyInfoWithBasicForm';
+import FooterForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/FooterForCompanyInfoWithBasicForm';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------------- Data ------------------------------------------
 // -----------------------------------------------------------------------------------------
-import dataForCompanyInfo, { initialFormValues } from './companyInfo/dataForCompanyInfo';
+import dataForCompanyInfoWithBasicForm, {
+  initialFormValues,
+} from './companyInfoWithBasicForm/dataForCompanyInfoWithBasicForm';
 
-class CompanyInfo extends Component {
+class CompanyInfoWithBasicForm extends Component {
   constructor(props) {
     super(props);
     this.state = initialFormValues;
@@ -46,25 +48,25 @@ class CompanyInfo extends Component {
 
   render() {
     const options = [{ key: 'aaa', text: 'aaaa' }, { key: 'b', text: 'bee' }];
-    const formData = dataForCompanyInfo({
+    const formData = dataForCompanyInfoWithBasicForm({
       entityTypeOptions: options,
       entityScopeOptions: options,
     });
 
     return (
       <div>
-        <Form
+        <BasicForm
           data={formData}
           formValues={this.state}
           handleSubmit={this.handleSubmit}
           validation={this.handleErrorCheck}
-          customFooter={<BtnForCompanyInfo />}
+          customFooter={<BtnForCompanyInfoWithBasicForm />}
           onChange={this.updateField}
         />
-        <FooterForCompanyInfo />
+        <FooterForCompanyInfoWithBasicForm />
       </div>
     );
   }
 }
 
-export default CompanyInfo;
+export default CompanyInfoWithBasicForm;

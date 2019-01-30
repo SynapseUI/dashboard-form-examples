@@ -1,26 +1,21 @@
 import React from 'react';
+import { Button } from 'synapsefi-dev-ui';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 
 // -----------------------------------------------------------------------------------------
 // ---------------------------------- Styled Components ------------------------------------
 // -----------------------------------------------------------------------------------------
-const Wrapper = styled.button`
-  cursor: pointer;
-  padding: 8px 20px;
-  margin: 4px 16px 4px 0;
+const Wrapper = styled.div`
+  grid-column-start: 1;
+  display: grid;
 `;
 
-const NavItem = ({ link, text, history }) => {
+const BtnForCompanyInfo = () => {
   return (
-    <Wrapper
-      onClick={() => {
-        history.push(link);
-      }}
-    >
-      {text}
+    <Wrapper style={{ gridColumnStart: 1 }}>
+      <Button>Continue </Button>
     </Wrapper>
   );
 };
 
-export default withRouter(NavItem);
+export default BtnForCompanyInfo;
