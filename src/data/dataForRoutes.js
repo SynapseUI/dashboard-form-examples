@@ -2,6 +2,7 @@
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
 import Main from '../components/pages/Main';
+import ExampleBasicForms from '../components/pages/ExampleBasicForms';
 import CompanyInfo from '../components/pages/CompanyInfo';
 import BusinessOwnerInfo from '../components/pages/BusinessOwnerInfo';
 import LoginInfo from '../components/pages/LoginInfo';
@@ -10,6 +11,7 @@ import VerifyIdentity from '../components/pages/VerifyIdentity';
 
 export const objKeys = {
   MAIN: 'MAIN',
+  EX_BASIC_FORM: 'EX_BASIC_FORM',
   COMPANY_INFO: 'COMPANY_INFO',
   BUSINESS_OWNER_INFO: 'BUSINESS_OWNER_INFO',
   LOGIN_INFO: 'LOGIN_INFO',
@@ -19,6 +21,7 @@ export const objKeys = {
 
 export const links = {
   [objKeys.MAIN]: '/',
+  [objKeys.EX_BASIC_FORM]: '/basic-form',
   [objKeys.COMPANY_INFO]: '/company-info',
   [objKeys.BUSINESS_OWNER_INFO]: '/business-owner-info',
   [objKeys.LOGIN_INFO]: '/login-info',
@@ -28,6 +31,7 @@ export const links = {
 
 export const texts = {
   [objKeys.MAIN]: 'Main',
+  [objKeys.EX_BASIC_FORM]: 'Ex Basic Form',
   [objKeys.COMPANY_INFO]: 'Company Info',
   [objKeys.BUSINESS_OWNER_INFO]: 'Business Owner Info',
   [objKeys.LOGIN_INFO]: 'Login Info',
@@ -37,6 +41,7 @@ export const texts = {
 
 export const components = {
   [objKeys.MAIN]: Main,
+  [objKeys.EX_BASIC_FORM]: ExampleBasicForms,
   [objKeys.COMPANY_INFO]: CompanyInfo,
   [objKeys.BUSINESS_OWNER_INFO]: BusinessOwnerInfo,
   [objKeys.LOGIN_INFO]: LoginInfo,

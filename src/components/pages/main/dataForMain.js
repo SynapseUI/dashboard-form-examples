@@ -1,5 +1,16 @@
 import { FormTypeConstants } from 'synapsefi-dev-ui';
 
+// FormTypeConstants.TYPE_INPUT
+// FormTypeConstants.TYPE_NUMBERINPUT
+// FormTypeConstants.TYPE_TEXTAREA
+// FormTypeConstants.TYPE_RADIOGROUP
+// FormTypeConstants.TYPE_CHECKBOXGROUP
+// FormTypeConstants.TYPE_DROPDOWN
+
+// type: 'currency',
+// type: 'date',
+// type: 'phone',
+
 export default [
   {
     isChild: true,

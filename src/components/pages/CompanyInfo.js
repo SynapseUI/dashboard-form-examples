@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Form } from 'synapsefi-dev-ui';
+import { Form, BasicForm } from 'synapsefi-dev-ui';
+import _ from 'lodash';
+
+// -----------------------------------------------------------------------------------------
+// ----------------------------------- Component Import ------------------------------------
+// -----------------------------------------------------------------------------------------
+import BtnForCompanyInfo from './companyInfo/BtnForCompanyInfo';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------------- Data ------------------------------------------
@@ -16,6 +22,22 @@ class CompanyInfo extends Component {
     this.setState({ [field]: value });
   };
 
+  handleErrorCheck = () => {
+    let errors = {};
+
+    if (this.state.email === 'test@email.com') {
+      errors['email'] = 'Input a real email address -_-';
+    }
+
+    Object.keys(this.state).forEach(field => {
+      if (_.isEmpty(this.state[field])) {
+        errors[field] = 'Field is required';
+      }
+    });
+
+    return errors;
+  };
+
   handleSubmit = e => {
     if (e) e.preventDefault();
 
@@ -26,28 +48,37 @@ class CompanyInfo extends Component {
   };
 
   render() {
-    const formData = dataForCompanyInfo();
+    const options = [{ key: 'aaa', text: 'aaaa' }, { key: 'b', text: 'bee' }];
+    const formData = dataForCompanyInfo({
+      entityTypeOptions: options,
+      entityScopeOptions: options,
+    });
+    console.log('formData: ', formData);
 
     return (
       <Form
         data={formData}
         formValues={this.state}
         handleSubmit={this.handleSubmit}
-        btnObjs={[
-          {
-            type: 'button', // MUST HAVE TYPE
-            style: 'tertiary',
-            text: 'Cancel',
-            onClick: () => console.log('cancel'),
-          },
-          {
-            type: 'submit',
-            style: 'primary',
-            text: 'Submit',
-          },
-        ]}
+        validation={this.handleErrorCheck}
+        // btnObjs={[
+        //   {
+        //     type: 'button', // MUST HAVE TYPE
+        //     style: 'tertiary',
+        //     text: 'Back',
+        //     onClick: () => console.log('cancel'),
+        //   },
+        //   {
+        //     type: 'submit',
+        //     style: 'primary',
+        //     text: 'Submit',
+        //   },
+        // ]}
+        customFooter={<BtnForCompanyInfo />}
         onChange={this.updateField}
-      />
+      >
+        {/* <div /> */}
+      </Form>
     );
   }
 }

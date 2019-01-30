@@ -42,12 +42,55 @@ export const labels = {
   [keys.COUNTRY]: 'Country',
 };
 
-export default () => {
+export const formTypes = {
+  [keys.COMPANY_NAME]: FormTypeConstants.TYPE_INPUT,
+  [keys.BUSINESS_TYPE]: FormTypeConstants.TYPE_DROPDOWN,
+  [keys.COMPANY_INDUSTRY]: FormTypeConstants.TYPE_DROPDOWN,
+  [keys.DATE_OF_ORGANIZATION]: FormTypeConstants.TYPE_NUMBERINPUT,
+  [keys.COMPANY_EMAIL]: FormTypeConstants.TYPE_INPUT,
+  [keys.COMPANY_PHONE_NUMBER]: FormTypeConstants.TYPE_NUMBERINPUT,
+  [keys.STREET]: FormTypeConstants.TYPE_INPUT,
+  [keys.CITY]: FormTypeConstants.TYPE_INPUT,
+  [keys.STATE]: FormTypeConstants.TYPE_DROPDOWN,
+  [keys.ZIP_CODE]: FormTypeConstants.TYPE_INPUT,
+  [keys.COUNTRY]: FormTypeConstants.TYPE_DROPDOWN,
+};
+
+export const types = {
+  [keys.DATE_OF_ORGANIZATION]: 'date',
+  [keys.COMPANY_PHONE_NUMBER]: 'phone',
+};
+
+const allOptions = {
+  [keys.BUSINESS_TYPE]: 'customOptions',
+  [keys.COMPANY_INDUSTRY]: 'customOptions',
+  [keys.STATE]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
+  [keys.COUNTRY]: [{ key: 'a', text: 'a' }, { key: 'b', text: 'b' }],
+};
+
+export default ({ entityTypeOptions, entityScopeOptions }) => {
   return Object.keys(keys).map((key, idx) => {
-    return {
+    const obj = {
       propName: key,
       label: labels[key],
-      formType: FormTypeConstants.TYPE_INPUT,
+      formType: formTypes[key],
+      autoComplete: 'random-placeholder',
     };
+
+    if (allOptions[key]) {
+      if (key === keys.BUSINESS_TYPE) {
+        obj.options = entityTypeOptions;
+      } else if (key === keys.COMPANY_INDUSTRY) {
+        obj.options = entityScopeOptions;
+      } else {
+        obj.options = allOptions[key];
+      }
+    }
+
+    if (types[key]) {
+      obj.type = types[key];
+    }
+
+    return obj;
   });
 };
