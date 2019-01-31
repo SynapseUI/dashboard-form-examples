@@ -11,10 +11,9 @@ import Layout from './components/Layout';
 class App extends Component {
   render() {
     return (
-      <div>aaa</div>
-      // <BrowserRouter>
-      //   <Layout />
-      // </BrowserRouter>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     );
   }
 }
