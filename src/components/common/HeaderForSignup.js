@@ -19,11 +19,27 @@ const Title = styled.h2`
 
 const Description = styled.div`font-size: 14px;`;
 
+const renderDescription = ({ description, children }) => {
+  switch (true) {
+    case !children && !description:
+      return null;
+
+    case children:
+      return <Description>{children}</Description>;
+
+    case description:
+      return <Description>{description}</Description>;
+
+    default:
+      return <div>something is wrong</div>;
+  }
+};
+
 const HeaderForSignup = ({ title, description, children }) => {
   return (
     <Wrapper>
-      <Title>{title} </Title>
-      <Description>{children || description}</Description>
+      <Title>{title}</Title>
+      {renderDescription({ description, children })}
     </Wrapper>
   );
 };
