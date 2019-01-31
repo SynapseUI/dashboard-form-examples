@@ -36,6 +36,7 @@ class LoginInfo extends Component {
     return (
       <Wrapper>
         <HeaderForSignup title="Set Up Login" />
+
         {[keys.EMAIL, keys.PASSWORD, keys.CONFIRM_PASSWORD].map((objKey, idx) => {
           return (
             <Input
@@ -47,6 +48,8 @@ class LoginInfo extends Component {
             />
           );
         })}
+
+        
       </Wrapper>
     );
   }
