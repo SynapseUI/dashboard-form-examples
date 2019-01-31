@@ -12,6 +12,7 @@ import _ from 'lodash';
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
+import HeaderForSignup from '../common/HeaderForSignup';
 import BtnForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/BtnForCompanyInfoWithBasicForm';
 import FooterForCompanyInfoWithBasicForm from './companyInfoWithBasicForm/FooterForCompanyInfoWithBasicForm';
 
@@ -51,6 +52,10 @@ class CompanyInfoWithBasicForm extends Component {
 
     return (
       <div>
+        <HeaderForSignup
+          title="Get started with SynapseFI"
+          description="Tell us more about your company"
+        />
         <BasicForm
           initialState={getInitialFormValues}
           formData={formData}
