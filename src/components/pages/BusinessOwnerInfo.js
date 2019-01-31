@@ -5,6 +5,7 @@ import _ from 'lodash';
 // -----------------------------------------------------------------------------------------
 // ----------------------------------- Component Import ------------------------------------
 // -----------------------------------------------------------------------------------------
+import HeaderForSignup from '../common/HeaderForSignup';
 import BtnForBusinessOwner from './businessOwnerInfo/BtnForBusinessOwner';
 
 // -----------------------------------------------------------------------------------------
@@ -36,10 +37,6 @@ class BusinessOwnerInfo extends Component {
 
   handleSubmit = values => {
     console.log('values: ', values);
-
-    setTimeout(() => {
-      console.log('Submiting this.state in FormApp', values);
-    }, 500);
   };
 
   render() {
@@ -47,6 +44,10 @@ class BusinessOwnerInfo extends Component {
 
     return (
       <div>
+        <HeaderForSignup
+          title="Tell us about the business owner"
+          description="This information will be used for identity verification."
+        />
         <BasicForm
           initialState={initialFormValues}
           formData={formData}

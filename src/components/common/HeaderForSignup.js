@@ -12,9 +12,9 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 24px;
+  font-size: 30px;
   margin: 0;
-  font-weight: 300;
+  font-weight: 200;
 `;
 
 const Description = styled.div`font-size: 14px;`;
