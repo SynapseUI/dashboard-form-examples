@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input } from 'synapsefi-dev-ui';
+import { Input, AnchorButton } from 'synapsefi-dev-ui';
 import styled from 'styled-components';
 import { isEmpty } from 'lodash';
 
@@ -115,8 +115,18 @@ class VerifyIdentity extends Component {
     return (
       <FormWrapper onSubmit={this.handleSubmit}>
         <HeaderForSignup title="Verify Identity">
-          <div>Enter the 6 digit code we sent to 019283012983</div>
-          <div>Didn't receive a code ? Resend</div>
+          <p style={{ margin: 0, lineHeight: 1.4 }}>
+            Enter the 6 digit code we sent to 019283012983
+          </p>
+          <p style={{ margin: 0, lineHeight: 1.4 }}>
+            Didn't receive a code ?{' '}
+            <AnchorButton
+              type="button"
+              style={{ lineHeight: 1 }}
+              color="var(--color-neptune)"
+              text="Resend"
+            />
+          </p>
         </HeaderForSignup>
 
         <Input
