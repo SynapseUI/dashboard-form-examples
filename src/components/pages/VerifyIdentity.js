@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, AnchorButton } from 'synapsefi-dev-ui';
+import { Input, AnchorButton, renderPageLevelAlert } from 'synapsefi-dev-ui';
 import styled from 'styled-components';
 import { isEmpty } from 'lodash';
 
@@ -8,11 +8,12 @@ import { isEmpty } from 'lodash';
 // -----------------------------------------------------------------------------------------
 import HeaderForSignup from '../common/HeaderForSignup';
 import BtnsForSignup from '../common/BtnsForSignup';
+import RenderPropForIsLoading from '../renderProps/RenderPropsForIsLoading';
 
 // -----------------------------------------------------------------------------------------
 // --------------------------------------- Helper ------------------------------------------
 // -----------------------------------------------------------------------------------------
-import { isRequired } from '../../helpers/helperFuncs';
+import { isRequired, fakeApiCall } from '../../helpers/helperFuncs';
 
 // -----------------------------------------------------------------------------------------
 // ----------------------------------------- Data ------------------------------------------
@@ -101,15 +102,25 @@ class VerifyIdentity extends Component {
     console.log('cancel click');
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
-    if (!this.displayErrorsIfAny()) {
-      const { values } = this.state;
-      console.log('values: ', values);
+    try {
+      if (!this.displayErrorsIfAny()) {
+        const { values } = this.state;
+        const { data } = await fakeApiCall();
+        console.log('data: ', data);
+        console.log('values: ', values);
+      }
+    } catch (error) {
+      renderPageLevelAlert({
+        type: 'ERROR',
+        message: 'error message',
+      });
     }
   };
 
   render() {
+    const { isLoading } = this.props;
     const { values, errors } = this.state;
 
     return (
@@ -139,10 +150,14 @@ class VerifyIdentity extends Component {
           error={errors[AUTH_CODE]}
         />
 
-        <BtnsForSignup handleCancleClick={this.handleCancleClick} />
+        <BtnsForSignup isLoading={isLoading} handleCancleClick={this.handleCancleClick} />
       </FormWrapper>
     );
   }
 }
 
-export default VerifyIdentity;
+export default React.forwardRef((props, ref) => (
+  <RenderPropForIsLoading>
+    {subProps => <VerifyIdentity {...subProps} {...props} ref={ref} />}
+  </RenderPropForIsLoading>
+));

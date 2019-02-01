@@ -1,12 +1,9 @@
 import { Component } from 'react';
 
 class RenderPropsForIsSelected extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelected: false,
-    };
-  }
+  state = {
+    isSelected: false,
+  };
 
   toggleIsSelected = () => {
     this.setState(prevState => ({ isSelected: !prevState.isSelected }));
