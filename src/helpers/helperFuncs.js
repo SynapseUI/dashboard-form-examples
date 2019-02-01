@@ -1,0 +1,1 @@
+export const isRequired = str => (str.trim() === '' ? 'Required' : '');

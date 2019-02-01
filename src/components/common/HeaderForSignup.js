@@ -24,10 +24,10 @@ const renderDescription = ({ description, children }) => {
     case !children && !description:
       return null;
 
-    case children:
+    case !!children:
       return <Description>{children}</Description>;
 
-    case description:
+    case !!description:
       return <Description>{description}</Description>;
 
     default:
